@@ -279,7 +279,7 @@ function writeToFile() {
                 <title>Employers</title>
                 <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
                 <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-                 <link href="./src/bootstrap/css/sb-admin-2.min.css" rel="stylesheet">
+                 <link href="bootstrap/css/sb-admin-2.min.css" rel="stylesheet">
                  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
                  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js "></script>
             </head>
@@ -309,13 +309,13 @@ function writeToFile() {
                         </div>
                     </div>
                 </div>
-                <script src="./src/bootstrap/vendor/jquery/jquery.min.js"></script>
-                <script src="./src/bootstrap/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-                <script src="./src/bootstrap/vendor/jquery-easing/jquery.easing.min.js"></script>
-                <script src="./src/bootstrap/js/sb-admin-2.min.js"></script>
-                <script src="./src/bootstrap/vendor/chart.js/Chart.min.js"></script>
-                <script src="./src/bootstrap/js/demo/chart-area-demo.js"></script>
-                <script src="./src/bootstrap/js/demo/chart-pie-demo.js"></script>
+                <script src="bootstrap/vendor/jquery/jquery.min.js"></script>
+                <script src="bootstrap/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+                <script src="bootstrap/vendor/jquery-easing/jquery.easing.min.js"></script>
+                <script src="bootstrap/js/sb-admin-2.min.js"></script>
+                <script src="bootstrap/vendor/chart.js/Chart.min.js"></script>
+                <script src="bootstrap/js/demo/chart-area-demo.js"></script>
+                <script src="bootstrap/js/demo/chart-pie-demo.js"></script>
                
                 <script src="index.js"></script>
                 </body>
