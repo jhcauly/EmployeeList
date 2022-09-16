@@ -7,7 +7,6 @@ import  fs  from "fs";
 const inquirer = require('inquirer')
 const fs = require('fs')
 const Questions = require('./lib/Questions.js')
-const Valid = require('./lib/valid.js')
 const Manager = require('./lib/Manager.js')
 const Enginner = require('./lib/Enginner.js')
 const Intern = require('./lib/Intern.js')
@@ -127,23 +126,41 @@ function init(aux) {
         inquirer
             .prompt(Questions.questionsManager)
             .then((manager) => {
-        
-      valideAnswer(manager.name,manager.email,manager.id,manager.office,"","","0")
-             
+                const Manager_ = new Manager(manager.name, manager.email,
+                    manager.id, manager.office);
+                   var aux = Manager_.getRole();
+                   if(aux){
+                    employers.push(aux);
+                    runQuery()
+                   }
             })
         
     } else if (aux === '1') {
         inquirer
             .prompt(Questions.questionsEngineer)
             .then((engineer) => {
-        valideAnswer(engineer.name,engineer.email,engineer.id,"",engineer.github,"","1")
+                const Enginner_ = new Enginner(engineer.name, engineer.email,
+                    engineer.id, engineer.github);
+                   var aux = Enginner_.getRole();
+                   if(aux){
+                    employers.push(aux);
+                    runQuery()
+                   }
                
             })
     } else if (aux === '2') {
         inquirer
             .prompt(Questions.questionsInterns)
             .then((interns) => {
-           valideAnswer(interns.name,interns.email,interns.id,"","",interns.school,"2")
+                const Interns_ = new Intern(interns.name, interns.email,
+                    interns.id, interns.school);
+                   var aux = Interns_.getRole();
+                   if(aux){
+                    employers.push(aux);
+                    runQuery()
+                   }
+                 
+                 
                 
             })
     }
@@ -172,7 +189,7 @@ function writeToFile() {
                             </br>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                 <p>ID: ${employers[i][2]}</p>
-                                <p>Email: <a href="mailto:${employers[i][3]}">${employers[i][1]}</a></p>
+                                <p>Email: <a href="mailto:${employers[i][1]}">${employers[i][1]}</a></p>
                                 <p>${aux}: ${employers[i][3]}</p>
 
                             </div>
@@ -183,7 +200,7 @@ function writeToFile() {
             </div>
         </div>`;
             menuDiv += ` <li class="nav-item active">
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="mailto:${employers[i][1]}">
                             <i class="fas fa-fw fa-tachometer-alt"></i>
                              <span>${employers[i][0]}</span></a>
                          </li>`;
@@ -202,7 +219,7 @@ function writeToFile() {
                             </br>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                 <p>ID: ${employers[i][2]}</p>
-                                <p>Email: <a href="mailto:${employers[i][3]}">${employers[i][1]}</a></p>
+                                <p>Email: <a href="mailto:${employers[i][1]}">${employers[i][1]}</a></p>
                                 <p>${aux}: <a href="https://github.com/${employers[i][3]}"rel="noopener noreferrer" target="_blank">${employers[i][3]}</a></p>
 
                             </div>
@@ -213,7 +230,7 @@ function writeToFile() {
             </div>
         </div>`;
             menuDiv += ` <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="mailto:${employers[i][1]}">
         <i class="fas fa-fw fa-tachometer-alt"></i>
          <span>${employers[i][0]}</span></a>
      </li>`;
@@ -233,7 +250,7 @@ function writeToFile() {
                                             </br>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                                 <p>ID: ${employers[i][2]}</p>
-                                                <p>Email: <a href="mailto:${employers[i][3]}">${employers[i][1]}</a></p>
+                                                <p>Email: <a href="mailto:${employers[i][1]}">${employers[i][1]}</a></p>
                                                 <p>${aux}: ${employers[i][3]}</p>
    
                                             </div>
@@ -244,7 +261,7 @@ function writeToFile() {
                             </div>
                         </div>`;
             menuDiv += ` <li class="nav-item active">
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="mailto:${employers[i][1]}">
                             <i class="fas fa-fw fa-tachometer-alt"></i>
                              <span>${employers[i][0]}</span></a>
                          </li>`;

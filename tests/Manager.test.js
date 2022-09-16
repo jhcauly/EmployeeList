@@ -1,44 +1,20 @@
-/* const Algo = require("../lib/Manager");
+const Manager = require("../lib/Manager");
 
-describe("Algo", () => {
-  describe("reverse", () => {
-    it("should reverse a given string", () => {
-      const str = "Hello World!";
-      const reversed = "!dlroW olleH";
-
-      const result = new Algo().reverse(str);
-
-      expect(result).toEqual(reversed);
+describe("Manager", () => {
+  describe("getOffice", () => {
+    it("Valid Office", () => {
+        const reversed = "Office 2";
+        const Manager_ = new Manager("Carlos","carlos@gmail.com","1","Office 2");
+        var result = Manager_.getOffice();
+        expect(result).toEqual(reversed);
     });
   });
-
-  describe("isPalindrome", () => {
-    it("should return true if a string is a palindrome", () => {
-      const str = "racecar";
-
-      const result = new Algo().isPalindrome(str);
-
-      expect(result).toEqual(true);
-    });
-
-    it("should return false if a string is not a palindrome", () => {
-      const str = "neon";
-
-      const result = new Algo().isPalindrome(str);
-
-      expect(result).toEqual(false);
-    });
-  });
-
-  describe("capitalize", () => {
-    it("should take a string and return a new string with the first letter of each word capitalized", () => {
-      const str = "capitalize every first word of the string.";
-      const capitalized = "Capitalize Every First Word Of The String.";
-
-      const result = new Algo().capitalize(str);
-
-      expect(result).toEqual(capitalized);
+  describe("getRole", () => {
+    it("Valid all information", () => {
+        const Manager_ = new Manager("Carlos","carlos@gmail.com","1","Office 2");
+        var result = Manager_.getRole();
+        const reversed = "Manager";
+        expect(result[4]).toEqual(reversed);
     });
   });
 });
- */
