@@ -321,8 +321,8 @@ function writeToFile() {
                 </body>
     
             </html>`;
-         /*    console.log(htmlContent) */
-    fs.writeFile('index.html', htmlContent, (err) => {
+    
+    fs.writeFile('./dist/index.html', htmlContent, (err) => {
         if (err) throw err;
         console.log('Success');
 
