@@ -1,9 +1,3 @@
-/* import {createRequire} from "module";
-const require = createRequire(import.meta.url)
-import  inquirer  from "inquirer";
-import  fs  from "fs";
- */
-/* import  inquirer  from "inquirer"; */
 const inquirer = require('inquirer')
 const fs = require('fs')
 const Questions = require('./lib/Questions.js')
@@ -11,114 +5,8 @@ const Manager = require('./lib/Manager.js')
 const Enginner = require('./lib/Enginner.js')
 const Intern = require('./lib/Intern.js')
 
-
 var aux = '0';
 const  employers = [];
-
-function valideAnswer(name,email,id,Office,Github,School,Answer) {
-    var auxName = name;
-    var auxEmail = email;
-    var auxId = id;
-    var auxOffice = Office;
-    var auxGitHub = Github;
-    var auxSchool = School;
-    var auxAnswer = Answer;
-   valideName(auxName,auxEmail,auxId,auxOffice,auxGitHub,auxSchool,auxAnswer)
-}
-function valideName(auxName,auxEmail,auxId,auxOffice,auxGitHub,auxSchool,auxAnswer) {
-   if (auxName === "") {
-        inquirer
-            .prompt(Questions.questionsManager[0])
-            .then((name) => {
-                valideName(name.name,auxEmail,auxId,auxOffice,auxGitHub,auxSchool,auxAnswer)
-            })
-    } else {
-        valideEmail(auxName,auxEmail,auxId,auxOffice,auxGitHub,auxSchool,auxAnswer)
-    }
-}
-function valideEmail(auxName,auxEmail,auxId,auxOffice,auxGitHub,auxSchool,auxAnswer) {
-    if (auxEmail === undefined || auxEmail === "") {
-        inquirer
-            .prompt(Questions.questionsManager[1])
-            .then((email) => {
-                valideEmail(auxName,email.email,auxId,auxOffice,auxGitHub,auxSchool,auxAnswer)
-            })
-    } else {
-        valideId(auxName,auxEmail,auxId,auxOffice,auxGitHub,auxSchool,auxAnswer)
-    }
-}
-function valideId(auxName,auxEmail,auxId,auxOffice,auxGitHub,auxSchool,auxAnswer) {
-    if (auxId === undefined || auxId === "") {
-        inquirer
-            .prompt(Questions.questionsManager[2])
-            .then((id) => {
-                valideId(auxName,auxEmail,id.id,auxOffice,auxGitHub,auxSchool,auxAnswer)
-            })
-    } else {
-        switch(auxAnswer) {
-            case "0":
-               valideOffice(auxName,auxEmail,auxId,auxOffice) 
-               break;
-            case "1":
-                valideGit(auxName,auxEmail,auxId,auxGitHub) 
-                break;
-              case "2":
-                valideSchool(auxName,auxEmail,auxId,auxSchool) 
-                break;
-          }
-      
-      
-    }
-}
-function valideOffice(auxName,auxEmail,auxId,auxOffice) {
-    if (auxOffice === undefined || auxOffice === "") {
-        inquirer
-            .prompt(Questions.questionsManager[3])
-            .then((office) => {
-                valideOffice(auxName,auxEmail,auxId,office.office)
-            })
-    } else {
-        const Manager_ = new Manager(auxName, auxEmail,
-            auxId, auxOffice);
-           var aux= Manager_.getRole();
-           employers.push(aux);
-           console.log(employers)
-           runQuery()
-    }
-}
-function valideGit(auxName,auxEmail,auxId,auxGitHub) {
-    if (auxGitHub === undefined || auxGitHub === "") {
-        inquirer
-            .prompt(Questions.questionsEngineer[3])
-            .then((github) => {
-                valideOffice(auxName,auxEmail,auxId,github.github)
-            })
-    } else {
-        console.log("enginner")
-        const engineer_ = new Enginner(auxName, auxEmail,
-            auxId, auxGitHub);
-            var aux=   engineer_.getRole();
-            employers.push(aux);
-            console.log(employers)
-            runQuery()
-    }
-}
-function valideSchool(auxName,auxEmail,auxId,auxSchool) {
-    if (auxSchool === undefined || auxSchool === "") {
-        inquirer
-            .prompt(Questions.questionsInterns[3])
-            .then((school) => {
-                valideOffice(auxName,auxEmail,auxId,school.school)
-            })
-    } else {
-        const interns_ = new Intern(auxName, auxEmail,
-              auxId, auxSchool);
-              var aux=  interns_.getRole();
-              employers.push(aux);
-              console.log(employers)
-            runQuery()
-    }
-}
 
 function init(aux) {
     var name = ""
